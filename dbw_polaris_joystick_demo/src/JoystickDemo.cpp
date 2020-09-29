@@ -189,6 +189,7 @@ void JoystickDemo::cmdCallback(const ros::TimerEvent& event)
     }
   }
   
+  /*New Function*/
   if (left2back2_){
     dbw_polaris_msgs::GearCmd gear_msg;
 
@@ -322,6 +323,9 @@ void JoystickDemo::recvJoy(const sensor_msgs::Joy::ConstPtr& msg)
 
   //ROS_INFO_STREAM(data_.steering_mult);
   //ROS_INFO_STREAM(data_.steering_cal);
+  
+  
+  /*Call new function when button pressed*/
   if (msg->buttons[BTN_STEER_MULT_2] && left2back2_ == false){
     left2back2timer_ = ros::Time::now();
     left2back2_ = true;
